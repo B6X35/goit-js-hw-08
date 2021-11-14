@@ -16,15 +16,15 @@ inputEl.addEventListener("input", inputText);
 
 messageEl.addEventListener("input", messageText);
 
-function inputText(event) {
+throttle(function inputText(event) {
     textEl.email = event.currentTarget.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(textEl));
-}
+}, 500);
 
-function messageText(event) {
+throttle(function messageText(event) {
     textEl.message = event.currentTarget.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(textEl));
-}
+}, 500);
 
 
 function saveTextMes() {
