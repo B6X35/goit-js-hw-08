@@ -12,19 +12,19 @@ const textEl = {
 
 saveTextMes()
 
-inputEl.addEventListener("input", inputText);
+inputEl.addEventListener("input", throttle(inputText, 500));
 
-messageEl.addEventListener("input", messageText);
+messageEl.addEventListener("input", throttle(messageText, 500));
 
-throttle(function inputText(event) {
-    textEl.email = event.currentTarget.value;
+function inputText(event) {
+    textEl.email = event.target.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(textEl));
-}, 500);
+}
 
-throttle(function messageText(event) {
-    textEl.message = event.currentTarget.value;
+function messageText(event) {
+    textEl.message = event.target.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(textEl));
-}, 500);
+}
 
 
 function saveTextMes() {
