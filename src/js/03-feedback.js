@@ -49,7 +49,7 @@ form.addEventListener("submit", function(event) {
       }
       
         console.log(em);
-
+    
     localStorage.clear();
     event.currentTarget.reset();
 });
